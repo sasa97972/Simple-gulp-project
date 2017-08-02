@@ -1,0 +1,17 @@
+@mixin link_color($color)
+  color: $color
+  &:link,
+  &:visited
+    color: $color
+
+@mixin position($position, $top: null, $left: null, $bottom: null, $right: null)
+  position: $position
+  top: $top
+  left: $left
+  right: $right
+  bottom: $bottom
+
+@mixin size($width, $height: $width)
+  width: $width
+  height: $height
+

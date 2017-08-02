@@ -1,0 +1,34 @@
+//--------------
+//     BLOCK
+//--------------
+.header
+  overflow: hidden
+  background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url(../img/bg.jpg) 0 / cover fixed
+  &:before
+    background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url(../img/bg.jpg) 0 / cover fixed
+    filter: blur(5px)
+
+//--------------
+//     ELEMENTS
+//--------------
+.header__content
+  color: $header-color
+
+.header__hero
+  font-size: 3.5em
+  @extend %z-index
+  @extend %uppercase
+
+.header__hero-description
+  @extend %z-index
+
+//--------------
+//     MODIFICATIONS
+//--------------
+
+//--------------
+//     MEDIA
+//--------------
+@media (max-width: 420px)
+  .header__hero
+    font-size: 2.5em

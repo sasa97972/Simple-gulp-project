@@ -1,0 +1,68 @@
+//--------------
+//     BLOCK
+//--------------
+.nav
+  border-bottom: 1px solid rgba(255,255,255,.2)
+  @extend %z-index
+  @extend %transition
+
+//--------------
+//     ELEMENTS
+//--------------
+.nav__link
+  @extend %uppercase
+  font-weight: 600
+  @include link_color($header-color)
+  &:before
+    background-color: $advance-color
+    opacity: 0
+    @extend %transition
+  &:hover:before
+    opacity: 1
+
+.nav__logo-link
+  font-size: 1.8em
+  font-family: $logo-font
+  @extend %transition
+  @include link_color($header-color)
+  &:hover
+    color: $advance-color
+
+.nav__responsive-mnu
+  @extend %hide
+
+.nav__lines
+  background-color: $header-color
+  @extend %transition
+
+//--------------
+//     MODIFICATIONS
+//--------------
+.nav_collapse
+  background-color: #fff
+  border-bottom-color: #f0f0f0
+
+.nav_collapse .nav__link
+  @include link_color($main-text-color)
+
+.nav_collapse .nav__logo-link
+  @include link_color($main-text-color)
+
+//--------------
+//     MEDIA
+//--------------
+@media (max-width: 500px)
+  .nav
+    background-color: #fff
+    border-bottom-color: #f0f0f0
+  .nav__link
+    font-size: 1.3em
+    @include link_color($main-text-color)
+  .nav__lines
+    background-color: $main-text-color
+  .nav__logo-link
+    @include link_color($main-text-color)
+
+@media (max-width: 729px)
+  .nav__list
+    border-top: 1px solid silver

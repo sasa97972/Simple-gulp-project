@@ -1,0 +1,27 @@
+//--------------
+//     BLOCK
+//--------------
+.header
+  height: 100vh
+  min-height: 500px
+  &:before
+    @include size(100%)
+    content: ""
+    @include position(absolute, 0, 0)
+
+//--------------
+//     ELEMENTS
+//--------------
+.header__content
+  @extend %wrapper
+  @extend %flex-col
+  justify-content: center
+  align-items: center
+
+//--------------
+//     MEDIA
+//--------------
+@media (max-width: 500px)
+  .header
+    &:before
+      display: none

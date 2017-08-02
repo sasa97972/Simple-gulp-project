@@ -1,0 +1,65 @@
+//--------------
+//     BLOCK
+//--------------
+.nav
+  width: 100%
+  @include position(fixed, 0, 0)
+
+//--------------
+//     ELEMENTS
+//--------------
+.nav__content
+  @extend %wrapper
+  @extend %flex-row
+  padding: 20px
+  justify-content: space-between
+  align-items: center
+
+.nav__item
+  display: inline-block
+  & + &
+    margin-left: 25px
+
+.nav__link
+  position: relative
+  &:before
+    content: ""
+    @include position(absolute, calc(50% - 3px), -15px)
+    @include size(10px, 3px)
+
+.nav__responsive-mnu
+  width: 30px
+
+.nav__top-line
+  @include size(33%, 1px)
+
+.nav__middle-line
+    @include size(66%, 1px)
+
+.nav__bottom-line
+    @include size(100%, 1px)
+
+.nav__lines
+    margin-bottom: 4px
+    &_active
+      @include size(100%, 1px)
+
+//--------------
+//     MEDIA
+//--------------
+@media (max-width: 729px)
+  .nav__responsive-mnu
+    display: flex
+    flex-flow: column nowrap
+
+  .nav__list
+    display: none
+    width: 100%
+    order: 3
+    margin-top: 5px
+
+  .nav__item
+    display: block
+    margin-top: 5px
+    & + &
+      margin-left: 0
