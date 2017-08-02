@@ -1,0 +1,109 @@
+.nav
+  width: 100%
+  @include position(fixed, 0, 0)
+  border: 1px solid
+  @extend %z-index
+  &_collapse
+    background-image: linear-gradient(#fff, #fafafa)
+    border-bottom-color: #f0f0f0
+  &_default
+    background-color: transparent
+    border-bottom-color: rgba(255,255,255,.2)
+  &__content
+    @extend %wrapper
+    @extend %flex-row
+    padding: 20px
+    justify-content: space-between
+    align-items: center
+
+  &__item
+    display: inline-block
+    & + &
+      margin-left: 25px
+
+  &__link
+    @extend %uppercase
+    font-weight: 600
+    position: relative
+    &_default
+      @include link_color($header-color)
+    &_collapse
+      @include link_color($main-text-color)
+    &:before
+      content: ""
+      @include position(absolute, calc(50% - 3px), -15px)
+      @include size(10px, 3px)
+      background-color: $advance-color
+      opacity: 0
+      @extend %transition
+    &:hover:before
+      opacity: 1
+
+  &__logo-link
+    font-size: 1.8em
+    font-family: $logo-font
+    @extend %transition
+    &_default
+      @include link_color($header-color)
+    &_collapse
+      @include link_color($main-text-color)
+    &:hover
+      color: $advance-color
+
+  &__responsive-mnu
+    @extend %hide
+    width: 30px
+
+  &__lines
+    background-color: $header-color
+    margin-bottom: 4px
+    @extend %transition
+    &_active
+      @include size((100% !important), 1px)
+
+  &__top-line
+    @include size(33%, 1px)
+
+  &__middle-line
+    @include size(66%, 1px)
+
+  &__bottom-line
+    @include size(100%, 1px)
+
+
+//--------------
+//     MEDIA
+//--------------
+@media (max-width: 500px)
+  .nav
+    &_default
+      background-image: linear-gradient(#fff, #fafafa)
+      border-bottom-color: #f0f0f0
+    &__link
+      font-size: 1.3em
+      &_default
+        @include link_color($main-text-color)
+    &__lines
+      background-color: $main-text-color
+    &__logo-link
+      &_default
+        @include link_color($main-text-color)
+
+@media (max-width: 729px)
+  .nav
+    &__responsive-mnu
+      display: flex
+      flex-flow: column nowrap
+
+    &__list
+      display: none
+      width: 100%
+      order: 3
+      border-top: 1px solid silver
+      margin-top: 5px
+
+    &__item
+      display: block
+      margin-top: 5px
+      & + &
+        margin-left: 0

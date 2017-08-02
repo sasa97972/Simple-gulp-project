@@ -1,0 +1,39 @@
+.header
+  height: 100vh
+  min-height: 500px
+  overflow: hidden
+  background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url(../img/bg.jpg) 0 / cover fixed
+  &:before
+    @include size(100%)
+    content: ""
+    @include position(absolute, 0, 0)
+    background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url(../img/bg.jpg) 0 / cover fixed
+    filter: blur(5px)
+
+  &__content
+    @extend %wrapper
+    @extend %flex-col
+    justify-content: center
+    align-items: center
+    color: $header-color
+
+  &__hero
+    font-size: 3.5em
+    @extend %z-index
+    @extend %uppercase
+
+  &__hero-description
+    @extend %z-index
+
+//--------------
+//     MEDIA
+//--------------
+@media (max-width: 500px)
+  .header
+    &:before
+      display: none
+
+@media (max-width: 420px)
+  .header
+    &__hero
+      font-size: 2.5em
